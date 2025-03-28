@@ -105,7 +105,7 @@ class ScreenSurveyState extends State<ScreenSurvey> {
                      widget.survey.id=='' ?'Add School':'Update School',
                       style: KStyle.title(color: kWhite),
                     ),
-                    color: kPrimary,
+                    color: kWarning,
                     buttonWidth: double.infinity,
                     borderColor: kInActive,
                     onTap: () {

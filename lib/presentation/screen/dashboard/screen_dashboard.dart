@@ -70,8 +70,9 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
             labelColor: kWarning,
             tabs: const [
               Tab(icon: Icon(Icons.event_note), text: "Scheduled"),
-              Tab(icon: Icon(Icons.loop), text: "In Progress"),
               Tab(icon: Icon(Icons.check_circle), text: "Completed"),
+              Tab(icon: Icon(Icons.loop), text: "In Hold"),
+
             ],
           ),
           actions: [

@@ -17,7 +17,7 @@ import 'data/model/survey_model/survey_model.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   await Hive.initFlutter();
   Hive.registerAdapter(SurveyModelAdapter()); // Register the adapter
   await Hive.openBox<SurveyModel>('surveyBox'); // Open the box
