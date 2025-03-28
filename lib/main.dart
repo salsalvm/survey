@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:functions/presentation/screen/login/login_bloc/login_bloc.dart';
+import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart';
 
 import 'core/di/injectable.dart';
 import 'core/res/colors.dart';
@@ -30,7 +33,12 @@ Future<void> main() async {
   ).then(
     (_) {
       runApp(
-        const MyApp(),
+        
+        MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<LoginBloc>()), 
+        BlocProvider(create: (context) => getIt<SignupBloc>()), 
+      ],child: const MyApp()),
       );
     },
   );

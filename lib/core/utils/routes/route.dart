@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:functions/core/di/injectable.dart';
 import 'package:functions/presentation/screen/dashboard/dashboard_bloc/dashboard_bloc.dart';
+import 'package:functions/presentation/screen/login/login_bloc/login_bloc.dart';
 import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart';
 import 'package:functions/presentation/screen/sign_up/signup_screen.dart';
 import 'package:functions/presentation/screen/splash/splash_screen.dart';
@@ -63,10 +64,7 @@ class KRoute {
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) =>
-             BlocProvider<SignupBloc>(
-            create: (context) => getIt<SignupBloc>(),
-            child: const ScreenSignUp(),
-          ),
+              ScreenSignUp(),
         );
 
       //---404-page not found screen rout

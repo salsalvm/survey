@@ -13,6 +13,7 @@ import 'package:functions/data/model/auth_model.dart';
 import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart';
 import 'package:functions/presentation/widgets/auth_appbar.dart';
 
+import '../../../core/res/components/custom_rich_text.dart';
 import '../../../core/utils/enum/enum.dart';
 import '../../../core/utils/loading_helper.dart';
 import '../../../core/utils/utils.dart';
@@ -135,21 +136,13 @@ class _ScreenSignUpState extends State<ScreenSignUp> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(KString.cAlreadyAccount),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamedAndRemoveUntil(
+                    
+                       KRichText(size: 14, firstText: KString.cAlreadyAccount, secondText: KString.login,secondColor: kWarning,onTap: () {
+                            Navigator.pushNamedAndRemoveUntil(
                                   context,
                                   KRoutesName.login,
                                   (Route<dynamic> route) => false);
-                            },
-                            child: Text(KString.login, style: KStyle.title()),
-                          ),
-                        ],
-                      ),
+                          },),
                       const SizedBox(height: 10),
                       ActionButton(
                         color: kWarning,

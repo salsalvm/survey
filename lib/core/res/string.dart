@@ -16,6 +16,7 @@ class KString {
   static String logoutSucces = 'logout successful';
   static String registerSuccessfully = 'Registration SuccesFully';
   static String mailFormateWrong = 'email formate is incorect';
+  static String passwordResetSent = 'password reset link send to mail';
   static String userAlreadyExist= 'user already exist';
   static String fieldEmpty = 'field is empty';
 
@@ -36,7 +37,7 @@ class KString {
   static const String login = 'Login';
 
   static const String continueButton = 'Continue';
-  static const String forgotPass = 'Forgot password?';
+  static const String forgotPass = '  Forgot password?';
   static const String rememberMe = 'Remember Me';
 
 

@@ -16,44 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginEvent {
-  AuthModel get body => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AuthModel body) loginUser,
+    required TResult Function(String mail) forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AuthModel body)? loginUser,
+    TResult? Function(String mail)? forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AuthModel body)? loginUser,
+    TResult Function(String mail)? forgotPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoginUser value) loginUser,
+    required TResult Function(ForgotPassword value) forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginUser value)? loginUser,
+    TResult? Function(ForgotPassword value)? forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginUser value)? loginUser,
+    TResult Function(ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LoginEventCopyWith<LoginEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,10 +61,6 @@ abstract class $LoginEventCopyWith<$Res> {
   factory $LoginEventCopyWith(
           LoginEvent value, $Res Function(LoginEvent) then) =
       _$LoginEventCopyWithImpl<$Res, LoginEvent>;
-  @useResult
-  $Res call({AuthModel body});
-
-  $AuthModelCopyWith<$Res> get body;
 }
 
 /// @nodoc
@@ -80,41 +75,16 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? body = null,
-  }) {
-    return _then(_value.copyWith(
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as AuthModel,
-    ) as $Val);
-  }
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AuthModelCopyWith<$Res> get body {
-    return $AuthModelCopyWith<$Res>(_value.body, (value) {
-      return _then(_value.copyWith(body: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$LoginUserImplCopyWith<$Res>
-    implements $LoginEventCopyWith<$Res> {
+abstract class _$$LoginUserImplCopyWith<$Res> {
   factory _$$LoginUserImplCopyWith(
           _$LoginUserImpl value, $Res Function(_$LoginUserImpl) then) =
       __$$LoginUserImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({AuthModel body});
 
-  @override
   $AuthModelCopyWith<$Res> get body;
 }
 
@@ -139,6 +109,16 @@ class __$$LoginUserImplCopyWithImpl<$Res>
           : body // ignore: cast_nullable_to_non_nullable
               as AuthModel,
     ));
+  }
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthModelCopyWith<$Res> get body {
+    return $AuthModelCopyWith<$Res>(_value.body, (value) {
+      return _then(_value.copyWith(body: value));
+    });
   }
 }
 
@@ -178,6 +158,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AuthModel body) loginUser,
+    required TResult Function(String mail) forgotPassword,
   }) {
     return loginUser(body);
   }
@@ -186,6 +167,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AuthModel body)? loginUser,
+    TResult? Function(String mail)? forgotPassword,
   }) {
     return loginUser?.call(body);
   }
@@ -194,6 +176,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AuthModel body)? loginUser,
+    TResult Function(String mail)? forgotPassword,
     required TResult orElse(),
   }) {
     if (loginUser != null) {
@@ -206,6 +189,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoginUser value) loginUser,
+    required TResult Function(ForgotPassword value) forgotPassword,
   }) {
     return loginUser(this);
   }
@@ -214,6 +198,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginUser value)? loginUser,
+    TResult? Function(ForgotPassword value)? forgotPassword,
   }) {
     return loginUser?.call(this);
   }
@@ -222,6 +207,7 @@ class _$LoginUserImpl implements LoginUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginUser value)? loginUser,
+    TResult Function(ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (loginUser != null) {
@@ -234,14 +220,154 @@ class _$LoginUserImpl implements LoginUser {
 abstract class LoginUser implements LoginEvent {
   const factory LoginUser({required final AuthModel body}) = _$LoginUserImpl;
 
-  @override
   AuthModel get body;
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginUserImplCopyWith<_$LoginUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ForgotPasswordImplCopyWith<$Res> {
+  factory _$$ForgotPasswordImplCopyWith(_$ForgotPasswordImpl value,
+          $Res Function(_$ForgotPasswordImpl) then) =
+      __$$ForgotPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String mail});
+}
+
+/// @nodoc
+class __$$ForgotPasswordImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$ForgotPasswordImpl>
+    implements _$$ForgotPasswordImplCopyWith<$Res> {
+  __$$ForgotPasswordImplCopyWithImpl(
+      _$ForgotPasswordImpl _value, $Res Function(_$ForgotPasswordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mail = null,
+  }) {
+    return _then(_$ForgotPasswordImpl(
+      mail: null == mail
+          ? _value.mail
+          : mail // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ForgotPasswordImpl implements ForgotPassword {
+  const _$ForgotPasswordImpl({required this.mail});
+
+  @override
+  final String mail;
+
+  @override
+  String toString() {
+    return 'LoginEvent.forgotPassword(mail: $mail)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ForgotPasswordImpl &&
+            (identical(other.mail, mail) || other.mail == mail));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mail);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ForgotPasswordImplCopyWith<_$ForgotPasswordImpl> get copyWith =>
+      __$$ForgotPasswordImplCopyWithImpl<_$ForgotPasswordImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthModel body) loginUser,
+    required TResult Function(String mail) forgotPassword,
+  }) {
+    return forgotPassword(mail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AuthModel body)? loginUser,
+    TResult? Function(String mail)? forgotPassword,
+  }) {
+    return forgotPassword?.call(mail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthModel body)? loginUser,
+    TResult Function(String mail)? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (forgotPassword != null) {
+      return forgotPassword(mail);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginUser value) loginUser,
+    required TResult Function(ForgotPassword value) forgotPassword,
+  }) {
+    return forgotPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoginUser value)? loginUser,
+    TResult? Function(ForgotPassword value)? forgotPassword,
+  }) {
+    return forgotPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginUser value)? loginUser,
+    TResult Function(ForgotPassword value)? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (forgotPassword != null) {
+      return forgotPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ForgotPassword implements LoginEvent {
+  const factory ForgotPassword({required final String mail}) =
+      _$ForgotPasswordImpl;
+
+  String get mail;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ForgotPasswordImplCopyWith<_$ForgotPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

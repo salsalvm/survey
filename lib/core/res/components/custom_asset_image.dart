@@ -10,7 +10,7 @@ class CustomAssetImage extends StatelessWidget {
     this.height,
     this.width,
     this.filteQuality = FilterQuality.high,
-    this.fit = BoxFit.fill,
+    this.fit = BoxFit.cover,
     this.shape = BoxShape.rectangle,
     this.borderColor = kTransparent,
     this.child,
@@ -29,23 +29,27 @@ class CustomAssetImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      padding: padding,
-      decoration: BoxDecoration(
-        shape: shape,
-        border: Border.all(
-          color: borderColor,
-          width: 2,
-        ),
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          filterQuality: FilterQuality.high,
-          image: AssetImage(name),
+    return ClipOval(
+      child: CircleAvatar(
+        child: Container(
+          height: height,
+          width: width,
+          padding: padding,
+          decoration: BoxDecoration(
+            shape: shape,
+            border: Border.all(
+              color: borderColor,
+              width: 2,
+            ),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              filterQuality: FilterQuality.high,
+              image: AssetImage(name),
+            ),
+          ),
+          child: child,
         ),
       ),
-      child: child,
     );
   }
 }

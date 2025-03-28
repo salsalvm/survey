@@ -19,6 +19,7 @@ import '../../domain/repo/message_repo.dart' as _i727;
 import '../../domain/repo/video_repo.dart' as _i499;
 import '../../presentation/screen/dashboard/dashboard_bloc/dashboard_bloc.dart'
     as _i460;
+import '../../presentation/screen/login/login_bloc/login_bloc.dart' as _i601;
 import '../../presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart'
     as _i913;
 import '../network/dio_client.dart' as _i667;
@@ -44,6 +45,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i913.SignupBloc(gh<_i55.PreferencesHelper>()));
     gh.lazySingleton<_i460.DashboardBloc>(
         () => _i460.DashboardBloc(gh<_i55.PreferencesHelper>()));
+    gh.lazySingleton<_i601.LoginBloc>(
+        () => _i601.LoginBloc(gh<_i55.PreferencesHelper>()));
     return this;
   }
 }

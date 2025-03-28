@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:functions/core/di/injectable.dart';
 import 'package:functions/core/res/colors.dart';
 import 'package:functions/core/res/components/action_button.dart';
+import 'package:functions/core/res/components/custom_rich_text.dart';
 import 'package:functions/core/res/string.dart';
 import 'package:functions/core/res/styles.dart';
 import 'package:functions/core/utils/utils.dart';
@@ -71,9 +72,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             : kError);
                   }
                   if (state.msg.contains(KString.loginSucces)) {
-                                  Navigator.pushNamedAndRemoveUntil(
-                  context, KRoutesName.dashboard, (Route<dynamic> route) => false);
-                   
+                    Navigator.pushNamedAndRemoveUntil(context,
+                        KRoutesName.dashboard, (Route<dynamic> route) => false);
                   }
                 },
                 builder: (context, state) {
@@ -120,36 +120,25 @@ class _ScreenLoginState extends State<ScreenLogin> {
                       ),
                       const SizedBox(height: 30),
                       Row(
-                        mainAxisSize: MainAxisSize.min,
+                        mainAxisSize: MainAxisSize.min,mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Checkbox(value: true, onChanged: (value) {}),
-                          Text(KString.rememberMe, style: KStyle.title()),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Text(KString.forgotPass,
-                              style: KStyle.title(
-                                decoration: TextDecoration.underline,
-                                color: kWarning,
-                              ))
+                          KRichText(size: 14, firstText: KString.rememberMe, secondText: KString.forgotPass,secondColor: kWarning,onTap: () {
+                            context.read<LoginBloc>().add(
+                                ForgotPassword(
+                                    mail: mailController.text.trim()));
+                          },),
+                    
                         ],
                       ),
                       const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(KString.cNoAccount),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamedAndRemoveUntil(
+                       KRichText(size: 14, firstText: KString.cNoAccount, secondText: KString.signup,secondColor: kWarning,onTap: () {
+                            Navigator.pushNamedAndRemoveUntil(
                                   context,
                                   KRoutesName.signup,
                                   (Route<dynamic> route) => false);
-                            },
-                            child: Text(KString.signup, style: KStyle.title()),
-                          ),
-                        ],
-                      ),
+                          },),
+                
                       const SizedBox(height: 30),
                       ActionButton(
                         color: kWarning,
