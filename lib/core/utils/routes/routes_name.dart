@@ -13,6 +13,7 @@ class KRoutesName {
 
   static const String dashboard = '/dashboard';
   static const String survey = '/survey';
+  static const String addSurvey = '/addSurvey';
 
 
 

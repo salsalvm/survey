@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:functions/core/res/components/custom_box.dart';
+import 'package:functions/core/utils/utils.dart';
 
 import '../../../core/res/colors.dart';
 import '../../../core/res/components/custom_app_bar.dart';
@@ -14,37 +16,85 @@ class ScreenSurveyUpdate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: CustomAppBar(titleText: survey.schoolName,actions: Row(children: [IconButton(onPressed: () {
+      appBar:const  PreferredSize(
+        preferredSize:  Size.fromHeight(70),
+        child: CustomAppBar(
+          titleText: 'Survey Details',
+          actions: 
+              CustomBox(padding: 10,
+                child:  Icon(Icons.delete,color: kPrimary,))
+            
           
-        },
-          icon: 
-          const Icon(Icons.delete))],),),
+        ),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Text('Place : ${survey.place}'),
-              Text('Rank : ${survey.schoolRank.toString()}'),
-            ],
-          ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Column(spacing: 10,mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Text('School Information',style: KStyle.heading(),),
+                CustomBox(
+                  child: Column(spacing: 10,crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           Text('School name:',style: KStyle.title(color: kInActive)),
+                          Text(survey.schoolName),
+                        ],
+                      ),
+                      KUtils.commonDivider(),
 
-           CustomButton(
-                    widget: Text(
-                    'Submit Survey',
-                      style: KStyle.title(color: kWhite),
-                    ),
-                    color: kWarning,
-                    buttonWidth: double.infinity,
-                    borderColor: kInActive,
-                    onTap: () {
-                      
-                         
-                    },
+                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           Text('Reg.No:',style: KStyle.title(color: kInActive)),
+                          Text(survey.id),
+                        ],
+                      ),
+                      KUtils.commonDivider(),
+
+                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           Text('Rank:',style: KStyle.title(color: kInActive)),
+                          Text(survey.schoolRank.toString()),
+                        ],
+                      ),
+                      KUtils.commonDivider(),
+
+                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           Text('Place :',style: KStyle.title(color: kInActive)),
+                          Text(survey.place),
+                        ],
+                      ),
+                   
+                    ],
                   ),
-        ],
+                ),
+
+               const  SizedBox(height: 15,),
+                 Text('Survey Information',style: KStyle.heading()),
+                CustomBox(
+                  child: Column(
+                    children: [
+                      CustomButton(
+                        widget: Text(
+                          'Submit Survey',
+                          style: KStyle.title(color: kWhite),
+                        ),
+                        color: kWarning,
+                        buttonWidth: double.infinity,
+                        borderColor: kInActive,
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

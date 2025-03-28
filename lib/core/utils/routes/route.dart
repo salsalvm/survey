@@ -10,6 +10,8 @@ import 'package:functions/presentation/screen/splash/splash_screen.dart';
 import 'package:functions/presentation/screen/login/login_screen.dart';
 import 'package:functions/presentation/screen/survey/bloc/survey_bloc.dart';
 import 'package:functions/presentation/screen/survey/survey_screen.dart';
+import 'package:functions/presentation/screen/survey_update/bloc/suervey_update_bloc.dart';
+import 'package:functions/presentation/screen/survey_update/screen_survey.dart';
 
 import '../../../presentation/screen/dashboard/screen_dashboard.dart';
 import 'routes_name.dart';
@@ -70,6 +72,19 @@ class KRoute {
             create: (context) => getIt<SurveyBloc>(),
             child: 
               ScreenSurvey(survey: (settings.arguments??const SurveyModel()) as SurveyModel ,),
+
+          ),
+        );
+      case KRoutesName.addSurvey:
+        return kPageBuilder(
+          (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>  BlocProvider<SuerveyUpdateBloc>(
+            create: (context) => getIt<SuerveyUpdateBloc>(),
+            child: 
+              ScreenSurveyUpdate(survey: (settings.arguments??const SurveyModel()) as SurveyModel ,),
 
           ),
         );

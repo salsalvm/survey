@@ -27,7 +27,7 @@ mixin _$SurveyModel {
   @HiveField(2)
   int get schoolRank => throw _privateConstructorUsedError;
   @HiveField(3)
-  String get id => throw _privateConstructorUsedError;
+  dynamic get id => throw _privateConstructorUsedError;
 
   /// Serializes this SurveyModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $SurveyModelCopyWith<$Res> {
       {@HiveField(0) dynamic schoolName,
       @HiveField(1) String place,
       @HiveField(2) int schoolRank,
-      @HiveField(3) String id});
+      @HiveField(3) dynamic id});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
     Object? schoolName = freezed,
     Object? place = null,
     Object? schoolRank = null,
-    Object? id = null,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       schoolName: freezed == schoolName
@@ -85,10 +85,10 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
           ? _value.schoolRank
           : schoolRank // ignore: cast_nullable_to_non_nullable
               as int,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -105,7 +105,7 @@ abstract class _$$SurveyModelImplCopyWith<$Res>
       {@HiveField(0) dynamic schoolName,
       @HiveField(1) String place,
       @HiveField(2) int schoolRank,
-      @HiveField(3) String id});
+      @HiveField(3) dynamic id});
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
     Object? schoolName = freezed,
     Object? place = null,
     Object? schoolRank = null,
-    Object? id = null,
+    Object? id = freezed,
   }) {
     return _then(_$SurveyModelImpl(
       schoolName: freezed == schoolName ? _value.schoolName! : schoolName,
@@ -136,10 +136,10 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
           ? _value.schoolRank
           : schoolRank // ignore: cast_nullable_to_non_nullable
               as int,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
     ));
   }
 }
@@ -171,7 +171,7 @@ class _$SurveyModelImpl implements _SurveyModel {
   @override
   @JsonKey()
   @HiveField(3)
-  final String id;
+  final dynamic id;
 
   @override
   String toString() {
@@ -188,13 +188,17 @@ class _$SurveyModelImpl implements _SurveyModel {
             (identical(other.place, place) || other.place == place) &&
             (identical(other.schoolRank, schoolRank) ||
                 other.schoolRank == schoolRank) &&
-            (identical(other.id, id) || other.id == id));
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(schoolName), place, schoolRank, id);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(schoolName),
+      place,
+      schoolRank,
+      const DeepCollectionEquality().hash(id));
 
   /// Create a copy of SurveyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -217,7 +221,7 @@ abstract class _SurveyModel implements SurveyModel {
       {@HiveField(0) final dynamic schoolName,
       @HiveField(1) final String place,
       @HiveField(2) final int schoolRank,
-      @HiveField(3) final String id}) = _$SurveyModelImpl;
+      @HiveField(3) final dynamic id}) = _$SurveyModelImpl;
 
   factory _SurveyModel.fromJson(Map<String, dynamic> json) =
       _$SurveyModelImpl.fromJson;
@@ -233,7 +237,7 @@ abstract class _SurveyModel implements SurveyModel {
   int get schoolRank;
   @override
   @HiveField(3)
-  String get id;
+  dynamic get id;
 
   /// Create a copy of SurveyModel
   /// with the given fields replaced by the non-null parameter values.

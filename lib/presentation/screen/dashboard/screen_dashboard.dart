@@ -109,47 +109,94 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
             return SafeArea(
                 child: TabBarView(
               children: [
-                SizedBox(
-                  child: state.sureyList.isEmpty?const Center(child:  Text('No Data Found')): ListView.builder(
-                    itemCount: state.sureyList.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        onTap: () {},
-                        title: Text(state.sureyList[index].schoolName),
-                        leading: Text(state.sureyList[index].id),
-                        subtitle: Text(state.sureyList[index].place),
-                        trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                      );
-                    },
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: SizedBox(
+                    child: state.sureyList.isEmpty
+                        ? Center(
+                            child: Text('School detail is not added',
+                                style: KStyle.title()))
+                        : ListView.separated(
+                            separatorBuilder: (context, index) =>
+                                KUtils.commonDivider(),
+                            itemCount: state.sureyList.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, KRoutesName.addSurvey,
+                                      arguments: state.sureyList[index]);
+                                },
+                                title: Text(state.sureyList[index].schoolName,style: KStyle.heading()),
+                                leading: CircleAvatar(
+                                    radius: 30,
+                                    backgroundColor: kWarning,
+                                    child: Text(state.sureyList[index].id,
+                                        style: KStyle.content())),
+                                subtitle: Text(state.sureyList[index].place),
+                                trailing:
+                                    const Icon(Icons.arrow_forward_ios_outlined),
+                              );
+                            },
+                          ),
                   ),
                 ),
                 SizedBox(
-                  child: ListView.builder(
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) =>
+                        KUtils.commonDivider(),
                     itemCount: state.completedList.length,
                     itemBuilder: (context, index) {
-                      return state.completedList.isEmpty?const Center(child:  Text('No Data Found')): ListTile(
-                        onTap: () {},
-                        title: Text(state.completedList[index].schoolName),
-                        leading: Text(state.completedList[index].id),
-                        subtitle: Text(state.completedList[index].place),
-                        trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                      );
+                      return state.completedList.isEmpty
+                          ? Center(
+                              child: Text('Survey is not completed yet',
+                                  style: KStyle.title()))
+                          : ListTile(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, KRoutesName.addSurvey,
+                                    arguments: state.completedList[index]);
+                              },
+                              title:
+                                  Text(state.completedList[index].schoolName),
+                              leading: CircleAvatar(
+                                  backgroundColor: kWarning,
+                                  child: Text(state.completedList[index].id)),
+                              subtitle: Text(state.completedList[index].place),
+                              trailing:
+                                  const Icon(Icons.arrow_forward_ios_outlined),
+                            );
                     },
                   ),
                 ),
                 SizedBox(
-                  child:state.inHoldList.isEmpty?const Center(child:  Text('No Data Found')): ListView.builder(
-                    itemCount: state.inHoldList.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        onTap: () {},
-                        title: Text(state.inHoldList[index].schoolName),
-                        leading: Text(state.inHoldList[index].id),
-                        subtitle: Text(state.inHoldList[index].place),
-                        trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                      );
-                    },
-                  ),
+                  child: state.inHoldList.isEmpty
+                      ? Center(
+                          child: Text(
+                          'No holding survey yet',
+                          style: KStyle.title(),
+                        ))
+                      : ListView.separated(
+                          separatorBuilder: (context, index) =>
+                              KUtils.commonDivider(),
+                          itemCount: state.inHoldList.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, KRoutesName.addSurvey,
+                                    arguments: state.inHoldList[index]);
+                              },
+                              title: Text(state.inHoldList[index].schoolName),
+                              leading: CircleAvatar(
+                                  backgroundColor: kWarning,
+                                  child: Text(state.inHoldList[index].id)),
+                              subtitle: Text(state.inHoldList[index].place),
+                              trailing:
+                                  const Icon(Icons.arrow_forward_ios_outlined),
+                            );
+                          },
+                        ),
                 ),
               ],
             ));

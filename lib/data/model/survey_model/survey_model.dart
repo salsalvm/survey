@@ -12,7 +12,7 @@ class SurveyModel with _$SurveyModel {
     @HiveField(0) @Default('')  schoolName,
     @HiveField(1) @Default('') String place,
     @HiveField(2) @Default(0) int schoolRank,
-    @HiveField(3) @Default('') String id,
+    @HiveField(3) @Default('') dynamic id,
   }) = _SurveyModel;
 
   factory SurveyModel.fromJson(Map<String, dynamic> json) =>

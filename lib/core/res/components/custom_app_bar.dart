@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum:const EdgeInsets.only(left: 20),
+      minimum:const EdgeInsets.only(left: 20,right: 20),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 10,

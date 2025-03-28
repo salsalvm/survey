@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //this class is hold whole color
 //its a static variable we can call anywhere with help of class name
 
-const Color kPrimary = Color.fromRGBO(233, 64, 87, 1);
+const Color kPrimary = Color.fromARGB(255, 255, 193, 7);
 const Color kSecondary = Color.fromRGBO(7, 97, 165, 0.9);
 
 const Color kError = Color.fromARGB(255, 255, 0, 0);

@@ -20,7 +20,7 @@ class SurveyModelAdapter extends TypeAdapter<SurveyModel> {
       schoolName: fields[0] as dynamic,
       place: fields[1] as String,
       schoolRank: fields[2] as int,
-      id: fields[3] as String,
+      id: fields[3] as dynamic,
     );
   }
 
@@ -58,7 +58,7 @@ _$SurveyModelImpl _$$SurveyModelImplFromJson(Map<String, dynamic> json) =>
       schoolName: json['schoolName'] ?? '',
       place: json['place'] as String? ?? '',
       schoolRank: (json['schoolRank'] as num?)?.toInt() ?? 0,
-      id: json['id'] as String? ?? '',
+      id: json['id'] ?? '',
     );
 
 Map<String, dynamic> _$$SurveyModelImplToJson(_$SurveyModelImpl instance) =>
