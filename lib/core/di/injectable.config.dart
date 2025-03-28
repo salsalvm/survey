@@ -22,6 +22,7 @@ import '../../presentation/screen/dashboard/dashboard_bloc/dashboard_bloc.dart'
 import '../../presentation/screen/login/login_bloc/login_bloc.dart' as _i601;
 import '../../presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart'
     as _i913;
+import '../../presentation/screen/survey/bloc/survey_bloc.dart' as _i618;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -36,6 +37,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i55.PreferencesHelper>(() => _i55.PreferencesHelper());
     gh.lazySingleton<_i224.SurveyDbService>(() => _i224.SurveyDbService());
+    gh.lazySingleton<_i618.SurveyBloc>(() => _i618.SurveyBloc(
+          gh<_i224.SurveyDbService>(),
+          gh<_i55.PreferencesHelper>(),
+        ));
     gh.lazySingleton<_i727.IMessageRepo>(() => _i12.LandingRepository());
     gh.lazySingleton<_i460.DashboardBloc>(() => _i460.DashboardBloc(
           gh<_i55.PreferencesHelper>(),

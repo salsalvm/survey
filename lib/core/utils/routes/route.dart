@@ -8,6 +8,7 @@ import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.d
 import 'package:functions/presentation/screen/sign_up/signup_screen.dart';
 import 'package:functions/presentation/screen/splash/splash_screen.dart';
 import 'package:functions/presentation/screen/login/login_screen.dart';
+import 'package:functions/presentation/screen/survey/bloc/survey_bloc.dart';
 import 'package:functions/presentation/screen/survey/survey_screen.dart';
 
 import '../../../presentation/screen/dashboard/screen_dashboard.dart';
@@ -65,8 +66,12 @@ class KRoute {
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
-          ) =>
+          ) =>  BlocProvider<SurveyBloc>(
+            create: (context) => getIt<SurveyBloc>(),
+            child: 
               ScreenSurvey(survey: (settings.arguments??const SurveyModel()) as SurveyModel ,),
+
+          ),
         );
  case KRoutesName.signup:
         return kPageBuilder(

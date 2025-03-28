@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:functions/core/utils/enum/enum.dart';
 import 'package:functions/data/model/survey_model/survey_model.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/res/string.dart';
 import '../../../../data/db/local_db.dart';
@@ -11,6 +12,8 @@ part 'survey_event.dart';
 part 'survey_state.dart';
 part 'survey_bloc.freezed.dart';
 
+
+@lazySingleton
 class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   final PreferencesHelper pref;
   final SurveyDbService db;

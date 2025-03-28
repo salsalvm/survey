@@ -23,16 +23,10 @@ mixin _$SurveyModel {
   @HiveField(0)
   dynamic get schoolName => throw _privateConstructorUsedError;
   @HiveField(1)
-  int get totalStudents => throw _privateConstructorUsedError;
+  String get place => throw _privateConstructorUsedError;
   @HiveField(2)
-  int get totalTeachers => throw _privateConstructorUsedError;
-  @HiveField(3)
-  int get numberOfLos => throw _privateConstructorUsedError;
-  @HiveField(4)
-  int get numberOfWinners => throw _privateConstructorUsedError;
-  @HiveField(5)
   int get schoolRank => throw _privateConstructorUsedError;
-  @HiveField(6)
+  @HiveField(3)
   String get id => throw _privateConstructorUsedError;
 
   /// Serializes this SurveyModel to a JSON map.
@@ -53,12 +47,9 @@ abstract class $SurveyModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(0) dynamic schoolName,
-      @HiveField(1) int totalStudents,
-      @HiveField(2) int totalTeachers,
-      @HiveField(3) int numberOfLos,
-      @HiveField(4) int numberOfWinners,
-      @HiveField(5) int schoolRank,
-      @HiveField(6) String id});
+      @HiveField(1) String place,
+      @HiveField(2) int schoolRank,
+      @HiveField(3) String id});
 }
 
 /// @nodoc
@@ -77,10 +68,7 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
   @override
   $Res call({
     Object? schoolName = freezed,
-    Object? totalStudents = null,
-    Object? totalTeachers = null,
-    Object? numberOfLos = null,
-    Object? numberOfWinners = null,
+    Object? place = null,
     Object? schoolRank = null,
     Object? id = null,
   }) {
@@ -89,22 +77,10 @@ class _$SurveyModelCopyWithImpl<$Res, $Val extends SurveyModel>
           ? _value.schoolName
           : schoolName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      totalStudents: null == totalStudents
-          ? _value.totalStudents
-          : totalStudents // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalTeachers: null == totalTeachers
-          ? _value.totalTeachers
-          : totalTeachers // ignore: cast_nullable_to_non_nullable
-              as int,
-      numberOfLos: null == numberOfLos
-          ? _value.numberOfLos
-          : numberOfLos // ignore: cast_nullable_to_non_nullable
-              as int,
-      numberOfWinners: null == numberOfWinners
-          ? _value.numberOfWinners
-          : numberOfWinners // ignore: cast_nullable_to_non_nullable
-              as int,
+      place: null == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as String,
       schoolRank: null == schoolRank
           ? _value.schoolRank
           : schoolRank // ignore: cast_nullable_to_non_nullable
@@ -127,12 +103,9 @@ abstract class _$$SurveyModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@HiveField(0) dynamic schoolName,
-      @HiveField(1) int totalStudents,
-      @HiveField(2) int totalTeachers,
-      @HiveField(3) int numberOfLos,
-      @HiveField(4) int numberOfWinners,
-      @HiveField(5) int schoolRank,
-      @HiveField(6) String id});
+      @HiveField(1) String place,
+      @HiveField(2) int schoolRank,
+      @HiveField(3) String id});
 }
 
 /// @nodoc
@@ -149,31 +122,16 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? schoolName = freezed,
-    Object? totalStudents = null,
-    Object? totalTeachers = null,
-    Object? numberOfLos = null,
-    Object? numberOfWinners = null,
+    Object? place = null,
     Object? schoolRank = null,
     Object? id = null,
   }) {
     return _then(_$SurveyModelImpl(
       schoolName: freezed == schoolName ? _value.schoolName! : schoolName,
-      totalStudents: null == totalStudents
-          ? _value.totalStudents
-          : totalStudents // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalTeachers: null == totalTeachers
-          ? _value.totalTeachers
-          : totalTeachers // ignore: cast_nullable_to_non_nullable
-              as int,
-      numberOfLos: null == numberOfLos
-          ? _value.numberOfLos
-          : numberOfLos // ignore: cast_nullable_to_non_nullable
-              as int,
-      numberOfWinners: null == numberOfWinners
-          ? _value.numberOfWinners
-          : numberOfWinners // ignore: cast_nullable_to_non_nullable
-              as int,
+      place: null == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as String,
       schoolRank: null == schoolRank
           ? _value.schoolRank
           : schoolRank // ignore: cast_nullable_to_non_nullable
@@ -191,12 +149,9 @@ class __$$SurveyModelImplCopyWithImpl<$Res>
 class _$SurveyModelImpl implements _SurveyModel {
   const _$SurveyModelImpl(
       {@HiveField(0) this.schoolName = '',
-      @HiveField(1) this.totalStudents = 0,
-      @HiveField(2) this.totalTeachers = 0,
-      @HiveField(3) this.numberOfLos = 0,
-      @HiveField(4) this.numberOfWinners = 0,
-      @HiveField(5) this.schoolRank = 0,
-      @HiveField(6) this.id = ''});
+      @HiveField(1) this.place = '',
+      @HiveField(2) this.schoolRank = 0,
+      @HiveField(3) this.id = ''});
 
   factory _$SurveyModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SurveyModelImplFromJson(json);
@@ -208,31 +163,19 @@ class _$SurveyModelImpl implements _SurveyModel {
   @override
   @JsonKey()
   @HiveField(1)
-  final int totalStudents;
+  final String place;
   @override
   @JsonKey()
   @HiveField(2)
-  final int totalTeachers;
-  @override
-  @JsonKey()
-  @HiveField(3)
-  final int numberOfLos;
-  @override
-  @JsonKey()
-  @HiveField(4)
-  final int numberOfWinners;
-  @override
-  @JsonKey()
-  @HiveField(5)
   final int schoolRank;
   @override
   @JsonKey()
-  @HiveField(6)
+  @HiveField(3)
   final String id;
 
   @override
   String toString() {
-    return 'SurveyModel(schoolName: $schoolName, totalStudents: $totalStudents, totalTeachers: $totalTeachers, numberOfLos: $numberOfLos, numberOfWinners: $numberOfWinners, schoolRank: $schoolRank, id: $id)';
+    return 'SurveyModel(schoolName: $schoolName, place: $place, schoolRank: $schoolRank, id: $id)';
   }
 
   @override
@@ -242,14 +185,7 @@ class _$SurveyModelImpl implements _SurveyModel {
             other is _$SurveyModelImpl &&
             const DeepCollectionEquality()
                 .equals(other.schoolName, schoolName) &&
-            (identical(other.totalStudents, totalStudents) ||
-                other.totalStudents == totalStudents) &&
-            (identical(other.totalTeachers, totalTeachers) ||
-                other.totalTeachers == totalTeachers) &&
-            (identical(other.numberOfLos, numberOfLos) ||
-                other.numberOfLos == numberOfLos) &&
-            (identical(other.numberOfWinners, numberOfWinners) ||
-                other.numberOfWinners == numberOfWinners) &&
+            (identical(other.place, place) || other.place == place) &&
             (identical(other.schoolRank, schoolRank) ||
                 other.schoolRank == schoolRank) &&
             (identical(other.id, id) || other.id == id));
@@ -257,15 +193,8 @@ class _$SurveyModelImpl implements _SurveyModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(schoolName),
-      totalStudents,
-      totalTeachers,
-      numberOfLos,
-      numberOfWinners,
-      schoolRank,
-      id);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(schoolName), place, schoolRank, id);
 
   /// Create a copy of SurveyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -286,12 +215,9 @@ class _$SurveyModelImpl implements _SurveyModel {
 abstract class _SurveyModel implements SurveyModel {
   const factory _SurveyModel(
       {@HiveField(0) final dynamic schoolName,
-      @HiveField(1) final int totalStudents,
-      @HiveField(2) final int totalTeachers,
-      @HiveField(3) final int numberOfLos,
-      @HiveField(4) final int numberOfWinners,
-      @HiveField(5) final int schoolRank,
-      @HiveField(6) final String id}) = _$SurveyModelImpl;
+      @HiveField(1) final String place,
+      @HiveField(2) final int schoolRank,
+      @HiveField(3) final String id}) = _$SurveyModelImpl;
 
   factory _SurveyModel.fromJson(Map<String, dynamic> json) =
       _$SurveyModelImpl.fromJson;
@@ -301,21 +227,12 @@ abstract class _SurveyModel implements SurveyModel {
   dynamic get schoolName;
   @override
   @HiveField(1)
-  int get totalStudents;
+  String get place;
   @override
   @HiveField(2)
-  int get totalTeachers;
-  @override
-  @HiveField(3)
-  int get numberOfLos;
-  @override
-  @HiveField(4)
-  int get numberOfWinners;
-  @override
-  @HiveField(5)
   int get schoolRank;
   @override
-  @HiveField(6)
+  @HiveField(3)
   String get id;
 
   /// Create a copy of SurveyModel

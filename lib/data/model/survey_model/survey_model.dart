@@ -10,12 +10,9 @@ part 'survey_model.g.dart';
 class SurveyModel with _$SurveyModel {
   const factory SurveyModel({
     @HiveField(0) @Default('')  schoolName,
-    @HiveField(1) @Default(0) int totalStudents,
-    @HiveField(2) @Default(0)int totalTeachers,
-    @HiveField(3) @Default(0)int numberOfLos,
-    @HiveField(4) @Default(0) int numberOfWinners,
-    @HiveField(5) @Default(0) int schoolRank,
-    @HiveField(6) @Default('') String id,
+    @HiveField(1) @Default('') String place,
+    @HiveField(2) @Default(0) int schoolRank,
+    @HiveField(3) @Default('') String id,
   }) = _SurveyModel;
 
   factory SurveyModel.fromJson(Map<String, dynamic> json) =>

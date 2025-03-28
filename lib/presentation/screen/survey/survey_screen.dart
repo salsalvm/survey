@@ -27,19 +27,13 @@ class ScreenSurveyState extends State<ScreenSurvey> {
   final _formKey = GlobalKey<FormState>();
 
  late TextEditingController schoolNameController ;
- late TextEditingController totalStudentsController ;
- late TextEditingController totalTeachersController ;
- late TextEditingController numberOfLosController ;
- late TextEditingController numberOfWinnersController ;
+ late TextEditingController placeController ;
  late TextEditingController schoolRankController ;
 
   @override
   void initState() {
     schoolNameController =TextEditingController(text: widget.survey.schoolName);
-   totalStudentsController =TextEditingController(text: widget.survey.totalStudents.toString());
-   totalTeachersController =TextEditingController(text: widget.survey.totalTeachers.toString());
-   numberOfLosController =TextEditingController(text: widget.survey.numberOfLos.toString());
-   numberOfWinnersController =TextEditingController(text: widget.survey.numberOfWinners.toString());
+   placeController =TextEditingController(text: widget.survey.place.toString());
    schoolRankController =TextEditingController(text: widget.survey.schoolRank.toString());
     super.initState();
   }
@@ -48,10 +42,7 @@ class ScreenSurveyState extends State<ScreenSurvey> {
   void dispose() {
     _formKey.currentState!.reset();
       schoolNameController.clear();
-      totalStudentsController.clear();
-      totalTeachersController.clear();
-      numberOfLosController.clear();
-      numberOfWinnersController.clear();
+      placeController.clear();
       schoolRankController.clear();
     super.dispose();
   }
@@ -67,7 +58,7 @@ class ScreenSurveyState extends State<ScreenSurvey> {
       resizeToAvoidBottomInset: false,
       appBar:  PreferredSize(
         preferredSize: const Size.fromHeight(70),
-        child: CustomAppBar(titleText:widget.survey.id=='' ?'Add Survey':'Edit Survey'),
+        child: CustomAppBar(titleText:widget.survey.id=='' ?'Add School':'Update School'),
       ),
       body: SingleChildScrollView(
         child: BlocConsumer<SurveyBloc, SurveyState>(
@@ -92,33 +83,16 @@ class ScreenSurveyState extends State<ScreenSurvey> {
                 children: <Widget>[
              
                   CustomForm(
-                    readOnly: true,
                     controller: schoolNameController,
                     name: 'School Name',
                     labelTrue: true,
                   ),
                   CustomForm(
-                    readOnly: true,
-                    controller: totalStudentsController,
-                    name: 'Total Student',
+                    controller: placeController,
+                    name: 'Place',
                     labelTrue: true,
                   ),
-                  CustomForm(
-                    readOnly: true,
-                    controller: totalTeachersController,
-                    name: 'Total Teacher',
-                    labelTrue: true,
-                  ),
-                  CustomForm(
-                    name: 'Number Of Los ',
-                    labelTrue: true,
-                    controller: numberOfLosController,
-                  ),
-                  CustomForm(
-                    name: 'Number Of Win',
-                    labelTrue: true,
-                    controller: numberOfWinnersController,
-                  ),
+                 
                   CustomForm(
                     name: 'School Rank',
                     labelTrue: true,
@@ -128,7 +102,7 @@ class ScreenSurveyState extends State<ScreenSurvey> {
 
                 CustomButton(
                     widget: Text(
-                      'Save',
+                     widget.survey.id=='' ?'Add School':'Update School',
                       style: KStyle.title(color: kWhite),
                     ),
                     color: kPrimary,
@@ -137,10 +111,7 @@ class ScreenSurveyState extends State<ScreenSurvey> {
                     onTap: () {
                       final SurveyModel userProfileUpdate = SurveyModel(
                           schoolName: schoolNameController.text.trim(),
-                          totalStudents: int.parse(totalStudentsController.text.trim()),
-                          totalTeachers: int.parse(totalTeachersController.text.trim()),
-                          numberOfLos:int.parse(numberOfLosController.text.trim()),
-                          numberOfWinners:int.parse(numberOfWinnersController.text.trim()),
+                          place: placeController.text.trim(),
                           schoolRank: int.parse(schoolRankController.text.trim()),
                           );
                      
