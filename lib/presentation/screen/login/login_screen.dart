@@ -21,7 +21,7 @@ import '../../../core/utils/regex.dart';
 import '../../../core/utils/routes/routes_name.dart';
 import '../../../data/db/preference_helper.dart';
 import '../../../data/db/preference_key.dart';
-import '../../../data/model/auth_model.dart';
+import '../../../data/model/auth/auth_model.dart';
 
 class ScreenLogin extends StatefulWidget {
   const ScreenLogin({super.key});

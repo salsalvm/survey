@@ -3,18 +3,15 @@
 //theme data will change based of this variable value
 //depend on bottom bar index
 
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:functions/core/res/asset/image_asset.dart';
 import 'package:functions/core/res/components/custom_asset_image.dart';
-import 'package:functions/core/res/components/custom_network_image.dart';
 import 'package:functions/core/res/styles.dart';
 import 'package:functions/core/utils/utils.dart';
 import 'package:functions/presentation/screen/dashboard/dashboard_bloc/dashboard_bloc.dart';
 
-import '../../../core/di/injectable.dart';
 import '../../../core/res/colors.dart';
 import '../../../core/res/string.dart';
 import '../../../core/utils/enum/enum.dart';
@@ -116,10 +113,12 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
                   child: ListView.builder(
                     itemCount: state.sureyList.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
+                      return ListTile(onTap: () {
+                        
+                      },
                         title: Text(state.sureyList[index].schoolName),
                         leading: Text(state.sureyList[index].id),
-                        subtitle: Text(state.sureyList[index].id),
+                        subtitle: Text(state.sureyList[index].place),
                         trailing: const Icon(Icons.arrow_forward_ios_outlined),
                       );
                     },

@@ -8,7 +8,7 @@ import '../../../../core/utils/enum/enum.dart';
 import '../../../../core/utils/regex.dart';
 import '../../../../data/db/preference_helper.dart';
 import '../../../../data/db/preference_key.dart';
-import '../../../../data/model/auth_model.dart';
+import '../../../../data/model/auth/auth_model.dart';
 
 part 'signup_event.dart';
 part 'signup_state.dart';

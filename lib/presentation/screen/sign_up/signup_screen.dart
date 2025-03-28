@@ -9,7 +9,7 @@ import 'package:functions/core/res/string.dart';
 import 'package:functions/core/res/styles.dart';
 import 'package:functions/core/utils/regex.dart';
 import 'package:functions/core/utils/routes/routes_name.dart';
-import 'package:functions/data/model/auth_model.dart';
+import 'package:functions/data/model/auth/auth_model.dart';
 import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart';
 import 'package:functions/presentation/widgets/auth_appbar.dart';
 
