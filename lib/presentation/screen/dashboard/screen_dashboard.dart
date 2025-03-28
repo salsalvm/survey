@@ -3,7 +3,6 @@
 //theme data will change based of this variable value
 //depend on bottom bar index
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:functions/core/res/asset/image_asset.dart';
@@ -69,13 +68,14 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
               Tab(icon: Icon(Icons.event_note), text: "Scheduled"),
               Tab(icon: Icon(Icons.check_circle), text: "Completed"),
               Tab(icon: Icon(Icons.loop), text: "In Hold"),
-
             ],
           ),
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, KRoutesName.survey);
+                  Navigator.pushNamed(context, KRoutesName.survey).then((_) {
+                    context.read<DashboardBloc>().add(const GetSurveyList());
+                  });
                 },
                 icon: const Icon(Icons.add)),
             const SizedBox(width: 10),
@@ -110,12 +110,11 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
                 child: TabBarView(
               children: [
                 SizedBox(
-                  child: ListView.builder(
+                  child: state.sureyList.isEmpty?const Center(child:  Text('No Data Found')): ListView.builder(
                     itemCount: state.sureyList.length,
                     itemBuilder: (context, index) {
-                      return ListTile(onTap: () {
-                        
-                      },
+                      return ListTile(
+                        onTap: () {},
                         title: Text(state.sureyList[index].schoolName),
                         leading: Text(state.sureyList[index].id),
                         subtitle: Text(state.sureyList[index].place),
@@ -124,8 +123,34 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
                     },
                   ),
                 ),
-                Container(),
-                Container(),
+                SizedBox(
+                  child: ListView.builder(
+                    itemCount: state.completedList.length,
+                    itemBuilder: (context, index) {
+                      return state.completedList.isEmpty?const Center(child:  Text('No Data Found')): ListTile(
+                        onTap: () {},
+                        title: Text(state.completedList[index].schoolName),
+                        leading: Text(state.completedList[index].id),
+                        subtitle: Text(state.completedList[index].place),
+                        trailing: const Icon(Icons.arrow_forward_ios_outlined),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(
+                  child:state.inHoldList.isEmpty?const Center(child:  Text('No Data Found')): ListView.builder(
+                    itemCount: state.inHoldList.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        onTap: () {},
+                        title: Text(state.inHoldList[index].schoolName),
+                        leading: Text(state.inHoldList[index].id),
+                        subtitle: Text(state.inHoldList[index].place),
+                        trailing: const Icon(Icons.arrow_forward_ios_outlined),
+                      );
+                    },
+                  ),
+                ),
               ],
             ));
           },

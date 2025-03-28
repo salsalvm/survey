@@ -292,6 +292,8 @@ mixin _$DashboardState {
   String get msg => throw _privateConstructorUsedError;
   LoadingState get isLoadingState => throw _privateConstructorUsedError;
   List<SurveyModel> get sureyList => throw _privateConstructorUsedError;
+  List<SurveyModel> get completedList => throw _privateConstructorUsedError;
+  List<SurveyModel> get inHoldList => throw _privateConstructorUsedError;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -307,7 +309,11 @@ abstract class $DashboardStateCopyWith<$Res> {
       _$DashboardStateCopyWithImpl<$Res, DashboardState>;
   @useResult
   $Res call(
-      {String msg, LoadingState isLoadingState, List<SurveyModel> sureyList});
+      {String msg,
+      LoadingState isLoadingState,
+      List<SurveyModel> sureyList,
+      List<SurveyModel> completedList,
+      List<SurveyModel> inHoldList});
 }
 
 /// @nodoc
@@ -328,6 +334,8 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
     Object? msg = null,
     Object? isLoadingState = null,
     Object? sureyList = null,
+    Object? completedList = null,
+    Object? inHoldList = null,
   }) {
     return _then(_value.copyWith(
       msg: null == msg
@@ -342,6 +350,14 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
           ? _value.sureyList
           : sureyList // ignore: cast_nullable_to_non_nullable
               as List<SurveyModel>,
+      completedList: null == completedList
+          ? _value.completedList
+          : completedList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
+      inHoldList: null == inHoldList
+          ? _value.inHoldList
+          : inHoldList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
     ) as $Val);
   }
 }
@@ -355,7 +371,11 @@ abstract class _$$DashboardStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String msg, LoadingState isLoadingState, List<SurveyModel> sureyList});
+      {String msg,
+      LoadingState isLoadingState,
+      List<SurveyModel> sureyList,
+      List<SurveyModel> completedList,
+      List<SurveyModel> inHoldList});
 }
 
 /// @nodoc
@@ -374,6 +394,8 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
     Object? msg = null,
     Object? isLoadingState = null,
     Object? sureyList = null,
+    Object? completedList = null,
+    Object? inHoldList = null,
   }) {
     return _then(_$DashboardStateImpl(
       msg: null == msg
@@ -388,6 +410,14 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
           ? _value._sureyList
           : sureyList // ignore: cast_nullable_to_non_nullable
               as List<SurveyModel>,
+      completedList: null == completedList
+          ? _value._completedList
+          : completedList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
+      inHoldList: null == inHoldList
+          ? _value._inHoldList
+          : inHoldList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
     ));
   }
 }
@@ -398,8 +428,12 @@ class _$DashboardStateImpl implements _DashboardState {
   const _$DashboardStateImpl(
       {required this.msg,
       required this.isLoadingState,
-      required final List<SurveyModel> sureyList})
-      : _sureyList = sureyList;
+      required final List<SurveyModel> sureyList,
+      required final List<SurveyModel> completedList,
+      required final List<SurveyModel> inHoldList})
+      : _sureyList = sureyList,
+        _completedList = completedList,
+        _inHoldList = inHoldList;
 
   @override
   final String msg;
@@ -413,9 +447,25 @@ class _$DashboardStateImpl implements _DashboardState {
     return EqualUnmodifiableListView(_sureyList);
   }
 
+  final List<SurveyModel> _completedList;
+  @override
+  List<SurveyModel> get completedList {
+    if (_completedList is EqualUnmodifiableListView) return _completedList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_completedList);
+  }
+
+  final List<SurveyModel> _inHoldList;
+  @override
+  List<SurveyModel> get inHoldList {
+    if (_inHoldList is EqualUnmodifiableListView) return _inHoldList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_inHoldList);
+  }
+
   @override
   String toString() {
-    return 'DashboardState(msg: $msg, isLoadingState: $isLoadingState, sureyList: $sureyList)';
+    return 'DashboardState(msg: $msg, isLoadingState: $isLoadingState, sureyList: $sureyList, completedList: $completedList, inHoldList: $inHoldList)';
   }
 
   @override
@@ -427,12 +477,21 @@ class _$DashboardStateImpl implements _DashboardState {
             (identical(other.isLoadingState, isLoadingState) ||
                 other.isLoadingState == isLoadingState) &&
             const DeepCollectionEquality()
-                .equals(other._sureyList, _sureyList));
+                .equals(other._sureyList, _sureyList) &&
+            const DeepCollectionEquality()
+                .equals(other._completedList, _completedList) &&
+            const DeepCollectionEquality()
+                .equals(other._inHoldList, _inHoldList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, msg, isLoadingState,
-      const DeepCollectionEquality().hash(_sureyList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      msg,
+      isLoadingState,
+      const DeepCollectionEquality().hash(_sureyList),
+      const DeepCollectionEquality().hash(_completedList),
+      const DeepCollectionEquality().hash(_inHoldList));
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -448,7 +507,9 @@ abstract class _DashboardState implements DashboardState {
   const factory _DashboardState(
       {required final String msg,
       required final LoadingState isLoadingState,
-      required final List<SurveyModel> sureyList}) = _$DashboardStateImpl;
+      required final List<SurveyModel> sureyList,
+      required final List<SurveyModel> completedList,
+      required final List<SurveyModel> inHoldList}) = _$DashboardStateImpl;
 
   @override
   String get msg;
@@ -456,6 +517,10 @@ abstract class _DashboardState implements DashboardState {
   LoadingState get isLoadingState;
   @override
   List<SurveyModel> get sureyList;
+  @override
+  List<SurveyModel> get completedList;
+  @override
+  List<SurveyModel> get inHoldList;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
