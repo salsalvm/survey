@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:functions/core/di/injectable.dart';
+import 'package:functions/data/model/survey_model/survey_model.dart';
 import 'package:functions/presentation/screen/dashboard/dashboard_bloc/dashboard_bloc.dart';
 import 'package:functions/presentation/screen/login/login_bloc/login_bloc.dart';
 import 'package:functions/presentation/screen/sign_up/sign_up_bloc/signup_bloc.dart';
 import 'package:functions/presentation/screen/sign_up/signup_screen.dart';
 import 'package:functions/presentation/screen/splash/splash_screen.dart';
 import 'package:functions/presentation/screen/login/login_screen.dart';
+import 'package:functions/presentation/screen/survey/survey_screen.dart';
 
 import '../../../presentation/screen/dashboard/screen_dashboard.dart';
 import 'routes_name.dart';
@@ -57,16 +59,24 @@ class KRoute {
               const ScreenLogin(),
         );
 
-      case KRoutesName.signup:
+      case KRoutesName.survey:
         return kPageBuilder(
           (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) =>
-              ScreenSignUp(),
+              ScreenSurvey(survey: (settings.arguments??const SurveyModel()) as SurveyModel ,),
         );
-
+ case KRoutesName.signup:
+        return kPageBuilder(
+          (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              const ScreenSignUp(),
+        );
       //---404-page not found screen rout
       default:
         return null;

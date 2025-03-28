@@ -19,6 +19,8 @@ class KString {
   static String passwordResetSent = 'password reset link send to mail';
   static String userAlreadyExist= 'user already exist';
   static String fieldEmpty = 'field is empty';
+  static String surveyAdded = 'survey added succesfully';
+  static String suerveyUpdated = 'survey updated succesfully';
 
   static const String mobileFormField = 'Enter phone number';
   static const String userFormField = 'Enter your name';

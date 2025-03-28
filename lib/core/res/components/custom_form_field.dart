@@ -10,9 +10,9 @@ import '../styles.dart';
 class CustomFormfield extends StatelessWidget {
   const CustomFormfield(
       {super.key,
-      required this.name,
-      required this.controller,
-      required this.validator,
+       this.name,
+       this.controller,
+       this.validator,
       this.size = 20,
       this.inputTextColor,
       this.fontSize,
@@ -24,14 +24,14 @@ class CustomFormfield extends StatelessWidget {
       this.inputFormatters,
       this.textInputAction = TextInputAction.next,
       this.onChanged});
-  final String name;
+  final String? name;
   final double size;
   final double? fontSize;
   final Color? inputTextColor;
   final TextEditingController? controller;
   final bool obscureText;
   final TextInputType keyboardType;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final Widget? prefix;
   final List<TextInputFormatter>? inputFormatters;
   final Widget? suffix;

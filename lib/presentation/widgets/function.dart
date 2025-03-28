@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_bool_literals_in_conditional_expressions
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
 import '../../core/res/asset/image_asset.dart';
@@ -23,22 +22,7 @@ class KFunctions {
     // }
   }
 
-//appbar action side icons and its actions
-  static GestureDetector appbarActions(
-      {required String icon, required void Function()? onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: CircleAvatar(
-        backgroundColor: kLight,
-        radius: 16,
-        child: SvgPicture.asset(
-          icon,
-          fit: BoxFit.fill,
-          height: 18,
-        ),
-      ),
-    );
-  }
+
 
 //rounded checkbox style
 //it is a type of check box

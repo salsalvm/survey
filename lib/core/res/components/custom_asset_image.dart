@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../colors.dart';
 
@@ -50,25 +49,6 @@ class CustomAssetImage extends StatelessWidget {
           child: child,
         ),
       ),
-    );
-  }
-}
-
-class CustomSvgImage extends StatelessWidget {
-  const CustomSvgImage({
-    required this.icon,
-    this.width = 24,
-    this.height = 24,
-    super.key,
-  });
-  final String icon;
-  final double width;
-  final double height;
-  @override
-  Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      icon,
-      fit: BoxFit.fill,
     );
   }
 }

@@ -19,32 +19,38 @@ mixin _$DashboardEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() logout,
+    required TResult Function() getSurveyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? logout,
+    TResult? Function()? getSurveyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? logout,
+    TResult Function()? getSurveyList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Logout value) logout,
+    required TResult Function(GetSurveyList value) getSurveyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Logout value)? logout,
+    TResult? Function(GetSurveyList value)? getSurveyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Logout value)? logout,
+    TResult Function(GetSurveyList value)? getSurveyList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() logout,
+    required TResult Function() getSurveyList,
   }) {
     return logout();
   }
@@ -121,6 +128,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? logout,
+    TResult? Function()? getSurveyList,
   }) {
     return logout?.call();
   }
@@ -129,6 +137,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? logout,
+    TResult Function()? getSurveyList,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -141,6 +150,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Logout value) logout,
+    required TResult Function(GetSurveyList value) getSurveyList,
   }) {
     return logout(this);
   }
@@ -149,6 +159,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Logout value)? logout,
+    TResult? Function(GetSurveyList value)? getSurveyList,
   }) {
     return logout?.call(this);
   }
@@ -157,6 +168,7 @@ class _$LogoutImpl implements Logout {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Logout value)? logout,
+    TResult Function(GetSurveyList value)? getSurveyList,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -171,9 +183,115 @@ abstract class Logout implements DashboardEvent {
 }
 
 /// @nodoc
+abstract class _$$GetSurveyListImplCopyWith<$Res> {
+  factory _$$GetSurveyListImplCopyWith(
+          _$GetSurveyListImpl value, $Res Function(_$GetSurveyListImpl) then) =
+      __$$GetSurveyListImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetSurveyListImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$GetSurveyListImpl>
+    implements _$$GetSurveyListImplCopyWith<$Res> {
+  __$$GetSurveyListImplCopyWithImpl(
+      _$GetSurveyListImpl _value, $Res Function(_$GetSurveyListImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetSurveyListImpl implements GetSurveyList {
+  const _$GetSurveyListImpl();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.getSurveyList()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetSurveyListImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() logout,
+    required TResult Function() getSurveyList,
+  }) {
+    return getSurveyList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? logout,
+    TResult? Function()? getSurveyList,
+  }) {
+    return getSurveyList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? logout,
+    TResult Function()? getSurveyList,
+    required TResult orElse(),
+  }) {
+    if (getSurveyList != null) {
+      return getSurveyList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Logout value) logout,
+    required TResult Function(GetSurveyList value) getSurveyList,
+  }) {
+    return getSurveyList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Logout value)? logout,
+    TResult? Function(GetSurveyList value)? getSurveyList,
+  }) {
+    return getSurveyList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Logout value)? logout,
+    TResult Function(GetSurveyList value)? getSurveyList,
+    required TResult orElse(),
+  }) {
+    if (getSurveyList != null) {
+      return getSurveyList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSurveyList implements DashboardEvent {
+  const factory GetSurveyList() = _$GetSurveyListImpl;
+}
+
+/// @nodoc
 mixin _$DashboardState {
   String get msg => throw _privateConstructorUsedError;
   LoadingState get isLoadingState => throw _privateConstructorUsedError;
+  List<SurveyModel> get sureyList => throw _privateConstructorUsedError;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -188,7 +306,8 @@ abstract class $DashboardStateCopyWith<$Res> {
           DashboardState value, $Res Function(DashboardState) then) =
       _$DashboardStateCopyWithImpl<$Res, DashboardState>;
   @useResult
-  $Res call({String msg, LoadingState isLoadingState});
+  $Res call(
+      {String msg, LoadingState isLoadingState, List<SurveyModel> sureyList});
 }
 
 /// @nodoc
@@ -208,6 +327,7 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   $Res call({
     Object? msg = null,
     Object? isLoadingState = null,
+    Object? sureyList = null,
   }) {
     return _then(_value.copyWith(
       msg: null == msg
@@ -218,6 +338,10 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
           ? _value.isLoadingState
           : isLoadingState // ignore: cast_nullable_to_non_nullable
               as LoadingState,
+      sureyList: null == sureyList
+          ? _value.sureyList
+          : sureyList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
     ) as $Val);
   }
 }
@@ -230,7 +354,8 @@ abstract class _$$DashboardStateImplCopyWith<$Res>
       __$$DashboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String msg, LoadingState isLoadingState});
+  $Res call(
+      {String msg, LoadingState isLoadingState, List<SurveyModel> sureyList});
 }
 
 /// @nodoc
@@ -248,6 +373,7 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
   $Res call({
     Object? msg = null,
     Object? isLoadingState = null,
+    Object? sureyList = null,
   }) {
     return _then(_$DashboardStateImpl(
       msg: null == msg
@@ -258,6 +384,10 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
           ? _value.isLoadingState
           : isLoadingState // ignore: cast_nullable_to_non_nullable
               as LoadingState,
+      sureyList: null == sureyList
+          ? _value._sureyList
+          : sureyList // ignore: cast_nullable_to_non_nullable
+              as List<SurveyModel>,
     ));
   }
 }
@@ -265,16 +395,27 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DashboardStateImpl implements _DashboardState {
-  const _$DashboardStateImpl({required this.msg, required this.isLoadingState});
+  const _$DashboardStateImpl(
+      {required this.msg,
+      required this.isLoadingState,
+      required final List<SurveyModel> sureyList})
+      : _sureyList = sureyList;
 
   @override
   final String msg;
   @override
   final LoadingState isLoadingState;
+  final List<SurveyModel> _sureyList;
+  @override
+  List<SurveyModel> get sureyList {
+    if (_sureyList is EqualUnmodifiableListView) return _sureyList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sureyList);
+  }
 
   @override
   String toString() {
-    return 'DashboardState(msg: $msg, isLoadingState: $isLoadingState)';
+    return 'DashboardState(msg: $msg, isLoadingState: $isLoadingState, sureyList: $sureyList)';
   }
 
   @override
@@ -284,11 +425,14 @@ class _$DashboardStateImpl implements _DashboardState {
             other is _$DashboardStateImpl &&
             (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.isLoadingState, isLoadingState) ||
-                other.isLoadingState == isLoadingState));
+                other.isLoadingState == isLoadingState) &&
+            const DeepCollectionEquality()
+                .equals(other._sureyList, _sureyList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, msg, isLoadingState);
+  int get hashCode => Object.hash(runtimeType, msg, isLoadingState,
+      const DeepCollectionEquality().hash(_sureyList));
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -303,12 +447,15 @@ class _$DashboardStateImpl implements _DashboardState {
 abstract class _DashboardState implements DashboardState {
   const factory _DashboardState(
       {required final String msg,
-      required final LoadingState isLoadingState}) = _$DashboardStateImpl;
+      required final LoadingState isLoadingState,
+      required final List<SurveyModel> sureyList}) = _$DashboardStateImpl;
 
   @override
   String get msg;
   @override
   LoadingState get isLoadingState;
+  @override
+  List<SurveyModel> get sureyList;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.

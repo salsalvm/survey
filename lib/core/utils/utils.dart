@@ -45,6 +45,14 @@ class KUtils {
     );
   }
 
+   static Widget commonDivider({double width = double.infinity}) {
+    return Container(
+      color: kInActive,
+      width: width,
+      height: .2,
+    );
+  }
+
   //---------------custom dialogue---------------//
 //with in a column contain
 //tow simple button

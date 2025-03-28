@@ -54,7 +54,7 @@ class CustomDatePickerState extends State<CustomDatePicker> {
             style: KStyle.heading(fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: ResponsiveRatio().height(context, .2),
+            height: ResponsiveRatio.height(context, .2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
